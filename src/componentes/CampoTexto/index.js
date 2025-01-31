@@ -1,12 +1,14 @@
+import { useState } from "react";
 import "./CampoTexto.css";
+
 function CampoTexto(props) {
   const placeholderModificada = `${props.placeholder}...`;
 
-  let valor = "Jade";
+  // let valor = "Jade";
+  const [valor, setValor] = useState('');
 
   const aoDigitado = (evento) => {
-    valor = evento.target.value;
-    console.log(valor);
+    props.aoAlterado(evento.target.value)
   };
 
   return (
